@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:api_demo_app/model/postModel.dart';
+import 'package:api_demo_app/registration_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -45,6 +46,12 @@ class _HomePageState extends State<HomePage> {
 
       body: Column(
         children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(
+                context,
+              MaterialPageRoute(builder: (context) => const RegistrationPage()),
+            );
+          }, child: Text('Page2')),
           Expanded(
             child: FutureBuilder(
                 future: getPostApi(),
