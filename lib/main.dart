@@ -1,6 +1,6 @@
 import 'package:api_demo_app/homepage.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 void main() {
@@ -13,13 +13,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Api Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
+    return ScreenUtilInit(
+      designSize: const Size(360, 640),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_ , child){
+        return MaterialApp(
+          title: 'Flutter Api Demo',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.black87),
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const HomePage(),
+        );
+      },
+
     );
   }
 }
